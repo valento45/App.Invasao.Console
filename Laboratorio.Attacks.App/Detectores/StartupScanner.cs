@@ -8,7 +8,7 @@ namespace Laboratorio.Attacks.App.Detectores
 {
     public class StartupScanner
     {
-        static void Main()
+        public static void RunStartupScanner()
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
             foreach (var file in Directory.GetFiles(path))

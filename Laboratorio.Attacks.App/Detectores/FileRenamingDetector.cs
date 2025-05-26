@@ -8,7 +8,7 @@ namespace Laboratorio.Attacks.App.Detectores
 {
     public class FileRenamingDetector
     {
-        static void Main()
+        public static void ExecuteFileRenamingDetector()
         {
             string folder = @"C:\\TesteRansom\\";
             FileSystemWatcher watcher = new FileSystemWatcher(folder);
